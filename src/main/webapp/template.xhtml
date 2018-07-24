@@ -29,12 +29,12 @@
                 <h:form>
                     <p:menu>
                         <p:submenu label="Ajax">
-                            <p:menuitem value="Kaydet" actionListener="#{menuView.save}" icon="ui-icon-disk" />
-                            <p:menuitem value="Güncelle" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w"/>
-                            <p:menuitem value="Listele" actionListener="#{menuView.save}" icon="ui-icon-document" />
+                            <p:menuitem value="Ekle" action="ekle.xhtml" icon="ui-icon-disk" />
+                            <p:menuitem value="Güncelle" action="guncelle.xhtml" icon="ui-icon-arrowrefresh-1-w"/>
+                            <p:menuitem value="Listele" action="listele.xhtml" icon="ui-icon-document" />
                         </p:submenu>
                         <p:submenu label="Non-Ajax">
-                            <p:menuitem value="Sil" actionListener="#{menuView.delete}" ajax="false" icon="ui-icon-close"/>
+                            <p:menuitem value="Sil" action="sil.xhtml" ajax="false" icon="ui-icon-close"/>
                         </p:submenu>
                         <p:submenu label="Navigations">
                             <p:menuitem value="Github" url="https://github.com/Posew7" icon="ui-icon-gear"/>

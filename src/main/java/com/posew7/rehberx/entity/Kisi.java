@@ -1,8 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.posew7.rehberx.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -18,6 +22,10 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ *
+ * @author Yunus
+ */
 @Entity
 @Table(name = "kisi")
 @XmlRootElement
@@ -49,8 +57,9 @@ public class Kisi implements Serializable {
     @Column(name = "dogtar")
     @Temporal(TemporalType.DATE)
     private Date dogtar;
+    @Size(max = 30)
     @Column(name = "tel")
-    private BigInteger tel;
+    private String tel;
 
     public Kisi() {
     }
@@ -99,11 +108,11 @@ public class Kisi implements Serializable {
         this.dogtar = dogtar;
     }
 
-    public BigInteger getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(BigInteger tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 
@@ -131,5 +140,5 @@ public class Kisi implements Serializable {
     public String toString() {
         return "com.posew7.rehberx.entity.Kisi[ no=" + no + " ]";
     }
-
+    
 }
