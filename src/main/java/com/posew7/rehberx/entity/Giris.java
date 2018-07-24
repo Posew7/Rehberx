@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "giris")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Giris.girisKontrol", query = "SELECT g FROM Giris g WHERE g.kulanici = :kullanici and g.sifre = :sifre")
+    @NamedQuery(name = "Giris.girisKontrol", query = "SELECT g FROM Giris g WHERE g.kullanici = :kullanici and g.sifre = :sifre")
     , @NamedQuery(name = "Giris.findAll", query = "SELECT g FROM Giris g")
     , @NamedQuery(name = "Giris.findByNo", query = "SELECT g FROM Giris g WHERE g.no = :no")
     , @NamedQuery(name = "Giris.findByKullanici", query = "SELECT g FROM Giris g WHERE g.kullanici = :kullanici")
