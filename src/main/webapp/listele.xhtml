@@ -13,6 +13,10 @@
             <ui:define name="content">
                 <h:form>
                     <p:dataTable var="kisi" value="#{menuMB.listele()}">
+                        <p:column headerText="No">
+                            <h:outputText value="#{kisi.no}" />
+                        </p:column>
+                        
                         <p:column headerText="Ad">
                             <h:outputText value="#{kisi.ad}" />
                         </p:column>

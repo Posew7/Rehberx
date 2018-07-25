@@ -6,9 +6,12 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 @Named(value = "menuMB")
 @SessionScoped
@@ -89,10 +92,67 @@ public class MenuMB implements Serializable {
 
         return "listele.xhtml";
     }
-    
-    public List<Kisi> listele(){
-        
+
+    public List<Kisi> listele() {
+
         return kisiFacade.findAll();
+    }
+
+    public String sil() {
+
+        Kisi k = new Kisi();
+        k.setNo(no);
+
+        kisiFacade.find(no);
+
+        kisiFacade.remove(k);
+
+        return "listele.xhtml";
+    }
+
+    public String getir() {
+
+        Kisi k = kisiFacade.find(no);
+
+        ad = k.getAd();
+        soyad = k.getSoyad();
+        maas = k.getMaas();
+        dogtar = k.getDogtar();
+        tel = k.getTel();
+
+        return "";
+    }
+
+    public String temizle() {
+
+        no = 0;
+        ad = "";
+        soyad = "";
+        maas = null;
+        dogtar = null;
+        tel = "";
+
+        return "";
+    }
+
+    public String guncelle() {
+
+        Kisi k = new Kisi();
+
+        k.setNo(no);
+        k.setAd(ad);
+        k.setSoyad(soyad);
+        k.setMaas(maas);
+        k.setDogtar(dogtar);
+        k.setTel(tel);
+
+        kisiFacade.edit(k);
+
+        temizle();
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("BAŞARALI", k.getAd() + " güncellendi"));
+
+        return "";
     }
 
 }

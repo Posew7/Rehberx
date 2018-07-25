@@ -1,14 +1,79 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
         <ui:composition template="./template.xhtml">
 
             <ui:define name="content">
-                content
+                
+                <h:form id="guncelleForm">
+                    <div align="left">
+                        <p:growl sticky="true" globalOnly="true" showDetail="true"/>
+                        <p:panelGrid columns="3">
+                            <p:outputLabel value="No"/>
+                            <p:inputText id="no" 
+                                         value="#{menuMB.no}"
+                                         required="true"
+                                         requiredMessage="boş geçilemez"/>
+                            <p:message for="no"/>
+                            
+                            <p:outputLabel value="Ad"/>
+                            <p:inputText id="ad" 
+                                         value="#{menuMB.ad}"
+                                         required="false"
+                                         requiredMessage="boş geçilemez"/>
+                            <p:message for="ad"/>
+
+                            <p:outputLabel value="Soyad"/>
+                            <p:inputText id="soyad" 
+                                         value="#{menuMB.soyad}"
+                                         required="false"
+                                         requiredMessage="boş geçilemez"/>
+                            <p:message for="soyad"/>
+
+                            <p:outputLabel value="Maaş"/>
+                            <p:inputText id="maas" 
+                                         value="#{menuMB.maas}"
+                                         required="false"
+                                         requiredMessage="boş geçilemez"/>
+                            <p:message for="maas"/>
+
+                            <p:outputLabel value="Doğum Tarihi"/>
+                            <p:inputMask id="dogtar" 
+                                         value="#{menuMB.dogtar}"
+                                         mask="99/99/9999"
+                                         required="false"
+                                         requiredMessage="boş geçilemez">
+                                <f:convertDateTime pattern="dd/mm/yyyy"/>
+                            </p:inputMask>
+                            <p:message for="dogtar"/>
+
+                            <p:outputLabel value="Telefon"/>
+                            <p:inputMask id="tel" 
+                                         value="#{menuMB.tel}"
+                                         mask="(999) 999-9999"
+                                         required="false"
+                                         requiredMessage="boş geçilemez"/>
+                            <p:message for="tel"/>
+
+                            <f:facet name="footer">
+                                <div align="center">
+                                    <p:commandButton value="GETİR" action="#{menuMB.getir()}" update="guncelleForm"/>
+                                    <p:commandButton value="GÜNCELLE" action="#{menuMB.guncelle()}" update="guncelleForm"/>
+                                </div>
+                            </f:facet>
+                        </p:panelGrid>
+                    </div>
+                </h:form>
+
+                
+                
             </ui:define>
 
         </ui:composition>
