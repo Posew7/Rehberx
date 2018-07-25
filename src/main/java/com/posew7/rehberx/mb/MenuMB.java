@@ -106,8 +106,12 @@ public class MenuMB implements Serializable {
         kisiFacade.find(no);
 
         kisiFacade.remove(k);
+        
+        temizle();
+        
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("BAŞARILI", "kayıt silindi"));
 
-        return "listele.xhtml";
+        return "";
     }
 
     public String getir() {
